@@ -1,9 +1,9 @@
 import app from "./app.js";
+import dotenv from "dotenv"; 
 
-import mongoose from 'mongoose';
-const DB_HOST = "mongodb+srv://NadiaOl:GjkVfh111@cluster0.czygkg6.mongodb.net/contacts_reader?retryWrites=true&w=majority";
 
 mongoose.set('strictQuery', true)
+const {DB_HOST} = process.env;
 
 mongoose.connect(DB_HOST)
 .then(() => { 
