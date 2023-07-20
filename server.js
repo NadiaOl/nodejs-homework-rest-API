@@ -1,8 +1,11 @@
 import app from "./app.js";
-import dotenv from "dotenv"; 
+import mongoose from "mongoose";
+import dotenv from "dotenv";
 
+mongoose.set('strictQuery', true);
 
-mongoose.set('strictQuery', true)
+dotenv.config();
+
 const {DB_HOST} = process.env;
 
 mongoose.connect(DB_HOST)

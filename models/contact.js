@@ -9,10 +9,12 @@ const contactSchema = new Schema({
     },
     email: {
         type: String,
+        match: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
         required: true,
     },
     phone: {
         type: String,
+        match: /^(\()?\d{3}(\))?(-|\s)?\d{3}(-|\s)\d{4}$/,
         required: true,
     },
     favorite: {
