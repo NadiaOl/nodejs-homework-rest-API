@@ -1,5 +1,5 @@
 import  {Schema, model} from "mongoose";
-import { handleMongooseError } from "../helpers/index.js";
+import { handleMongooseError, validateAtUpdate } from "../helpers/index.js";
 
 
 const contactSchema = new Schema({
@@ -14,7 +14,7 @@ const contactSchema = new Schema({
     },
     phone: {
         type: String,
-        match: /^(\()?\d{3}(\))?(-|\s)?\d{3}(-|\s)\d{4}$/,
+        match: /^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,14}(\s*)?$/,
         required: true,
     },
     favorite: {
@@ -23,8 +23,12 @@ const contactSchema = new Schema({
     },
 }, {versionKey: false, timestamps: true});
 
-contactSchema.post("save", handleMongooseError)
+contactSchema.pre("findOneAndUpdate", validateAtUpdate);
+
+contactSchema.post("save", handleMongooseError);
+contactSchema.post("findOneAndUpdate", handleMongooseError);
 
 const Contact = model("contact", contactSchema);
 
 export default Contact;
+
