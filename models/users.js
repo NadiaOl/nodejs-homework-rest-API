@@ -1,5 +1,6 @@
 import  {Schema, model} from "mongoose";
 import { handleMongooseError, validateAtUpdate } from "../helpers/index.js";
+import { emailRegexp } from "../constans/user-constans.js";
 
 const usersSchema = new Schema({
     password: {
@@ -8,7 +9,7 @@ const usersSchema = new Schema({
     },
     email: {
         type: String,
-        match: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
+        match: emailRegexp,
         required: [true, 'Email is required'],
         unique: true,
     },
@@ -22,3 +23,12 @@ const usersSchema = new Schema({
         default: null,
     },
 }, {versionKey: false, timestamps: true});
+
+usersSchema.pre("findOneAndUpdate", validateAtUpdate);
+
+usersSchema.post("save", handleMongooseError);
+usersSchema.post("findOneAndUpdate", handleMongooseError);
+
+const User = model("user", usersSchema);
+
+export default User;
