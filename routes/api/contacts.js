@@ -3,8 +3,10 @@ import contactControllers from "../../controllers/contact-controller.js";
 import contactsSchemas from "../../schemas/contacts-schemas.js";
 
 import {validateBody, isValidId} from "../../decorators/index.js";
+import authenticate from "../../helpers/authenticate.js";
 
 const contactsRouter = express.Router();
+contactsRouter.use(authenticate);
 
 contactsRouter.get('/', contactControllers.getAll)
 

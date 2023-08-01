@@ -31,3 +31,11 @@ mongodb+srv://NadiaOl:GjkVfh111@cluster0.czygkg6.mongodb.net/
 - `npm run start:dev` &mdash; старт сервера в режимі розробки (development)
 - `npm run lint` &mdash; запустити виконання перевірки коду з eslint, необхідно виконувати перед кожним PR та виправляти всі помилки лінтера
 - `npm lint:fix` &mdash; та ж перевірка лінтера, але з автоматичними виправленнями простих помилок
+
+
+    {
+
+"name": "Frank s",
+"email": "scelerisque@magnis.org",
+"phone": "(186) 568-3720"
+    }
