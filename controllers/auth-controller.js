@@ -24,6 +24,7 @@ if(user) {
 const hashPassword = await bcrypt.hash(password, 10)
 const avatarURL = gravatar.url(email, {protocol: 'https', s: '250'});
 const newUser = await User.create({...req.body, avatarURL, password: hashPassword});
+
 res.status(201).json({
     email: newUser.email, 
     subscription: newUser.subscription,
@@ -52,9 +53,6 @@ res.json({
     token,
 })
 };
-
-// const avatar = await Jimp.read(oldPath);
-// await avatar.resize(250, 250).write(oldPath);
 
 
 const updateAvatar = async (req, res) => {

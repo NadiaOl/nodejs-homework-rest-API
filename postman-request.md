@@ -32,8 +32,16 @@ http://localhost:3000/api/users/current
         {
         "email": "yyy@nnn.nnn"
         }
+4. Смана аватарки - PUTCH
+http://localhost:3000/api/users/avatars
+    body - form-data
+    avatar(file) сам файл
+    ответ:
+        {
+        "avatarURL": "avatars\\1691518375790-904011107_avatar.jpg"
+        }
 
-4. Разлогиниться- POST
+5. Разлогиниться- POST
 http://localhost:3000/api/users/signout
     body:
         {
@@ -47,7 +55,7 @@ http://localhost:3000/api/users/signout
 <!-- CONTACTS -->
 <!-- обязательно вставить токен, получнный при логинизации: Authorization => Bearer Token -->
 
-5. Получить все контакты - GET
+1. Получить все контакты - GET
 http://localhost:3000/api/users/contacts
     body - нет
     ответ:
@@ -66,7 +74,7 @@ http://localhost:3000/api/users/contacts
             }
         ]
 
-6. Добавить контакт - POST
+2. Добавить контакт - POST
 http://localhost:3000/api/contacts
     body:
         {
@@ -87,7 +95,7 @@ http://localhost:3000/api/contacts
         "updatedAt": "2023-08-07T18:25:38.452Z"
         }
 
-7. Изменить контакт - PUT
+3. Изменить контакт - PUT
 http://localhost:3000/api/contacts/64c6a60bf2583a8261235519
     body - все обязательные поля, даже если в них ничего не меняем:
         {
@@ -107,7 +115,7 @@ http://localhost:3000/api/contacts/64c6a60bf2583a8261235519
         "updatedAt": "2023-08-07T18:49:58.400Z"
         }
 
-8. Изменить поле favorite - PATCH
+4. Изменить поле favorite - PATCH
 http://localhost:3000/api/contacts/64c6a60bf2583a8261235519/favorite
     body:
         {
@@ -125,7 +133,7 @@ http://localhost:3000/api/contacts/64c6a60bf2583a8261235519/favorite
         "updatedAt": "2023-08-07T18:49:58.400Z"
         }
 
-9. Найти контакт по ID - GET
+5. Найти контакт по ID - GET
 http://localhost:3000/api/contacts/64c6a8d9e52b5af44a1a2d01 
     body - нет
     ответ: 
@@ -140,7 +148,7 @@ http://localhost:3000/api/contacts/64c6a8d9e52b5af44a1a2d01
         "updatedAt": "2023-07-30T18:15:53.765Z"
     }
 
-10. Удалить контакт - DELETE
+6. Удалить контакт - DELETE
 http://localhost:3000/api/contacts/64c6a8d9e52b5af44a1a2d01 
     body - нет
     ответ:
