@@ -15,7 +15,7 @@ const getAll = async (req, res, next) => {
     console.log("limit", limit)
     res.json(result)
 };
-// .sort((a, b) => {a-b})
+
 const getById = async (req, res) => {
     const {id} = req.params;
     const result = await Contact.findById(id);
