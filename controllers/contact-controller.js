@@ -1,10 +1,7 @@
 import Contact from "../models/contact.js";
 import {HttpError} from "../helpers/index.js";
 
-
 import {ctrlWrapper} from "../decorators/index.js";
-
-
 
 const getAll = async (req, res, next) => {
     const {_id: owner} = req.user;
@@ -15,7 +12,7 @@ const getAll = async (req, res, next) => {
     console.log("limit", limit)
     res.json(result)
 };
-// .sort((a, b) => {a-b})
+
 const getById = async (req, res) => {
     const {id} = req.params;
     const result = await Contact.findById(id);

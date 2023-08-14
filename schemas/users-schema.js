@@ -11,7 +11,12 @@ const userSinginSchema = Joi.object({
     email: Joi.string().pattern(emailRegexp).required(),
 })
 
+const updateAvatarSchema = Joi.object({
+    avatar: Joi.string()
+    })
+
 export default {
     userSingUpSchema,
     userSinginSchema,
+    updateAvatarSchema,
 }
