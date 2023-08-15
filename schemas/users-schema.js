@@ -15,8 +15,16 @@ const updateAvatarSchema = Joi.object({
     avatar: Joi.string()
     })
 
+const userEmailSchema = Joi.object({
+    email: Joi.string().pattern(emailRegexp).required().messages({
+        'message': `Missing required field email`
+      })
+    
+})
+
 export default {
     userSingUpSchema,
     userSinginSchema,
     updateAvatarSchema,
+    userEmailSchema,
 }
