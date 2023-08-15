@@ -17,7 +17,7 @@ const updateAvatarSchema = Joi.object({
 
 const userEmailSchema = Joi.object({
     email: Joi.string().pattern(emailRegexp).required().messages({
-        'message': `Missing required field email`
+        'any.required': `Missing required field email`
       })
     
 })
