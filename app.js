@@ -5,12 +5,9 @@ import cors from "cors";
 import contactsRouter from "./routes/api/contacts.js";
 import authRouter from "./routes/api/users.js"
 
-
 const app = express();
 
 const formatsLogger = app.get('env') === 'development' ? 'dev' : 'short'
-
-
 
 app.use(logger(formatsLogger))
 app.use(cors())
@@ -28,5 +25,8 @@ app.use((err, req, res, next) => {
   const {status = 500, message = "Server error"} = err;
   res.status(status).json({ message, })
 })
+
+
+
 
 export default app

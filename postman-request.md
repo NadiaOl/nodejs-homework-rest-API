@@ -155,3 +155,33 @@ http://localhost:3000/api/contacts/64c6a8d9e52b5af44a1a2d01
         {
         "message": "Contact delete"
         }
+
+
+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
+
+echo "export SENDGRID_API_KEY='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'" > sendgrid.env
+echo "sendgrid.env" >> .gitignore
+source ./sendgrid.env
+
+
+
+// using Twilio SendGrid's v3 Node.js Library
+// https://github.com/sendgrid/sendgrid-nodejs
+javascript
+const sgMail = require('@sendgrid/mail')
+sgMail.setApiKey(process.env.SENDGRID_API_KEY)
+const msg = {
+  to: 'test@example.com', // Change to your recipient
+  from: 'test@example.com', // Change to your verified sender
+  subject: 'Sending with SendGrid is Fun',
+  text: 'and easy to do anywhere, even with Node.js',
+  html: '<strong>and easy to do anywhere, even with Node.js</strong>',
+}
+sgMail
+  .send(msg)
+  .then(() => {
+    console.log('Email sent')
+  })
+  .catch((error) => {
+    console.error(error)
+  })
